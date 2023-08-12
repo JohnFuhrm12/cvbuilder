@@ -1,0 +1,30 @@
+#templateContent {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    box-shadow: 5px 5px 5px 0px rgba(33, 33, 33, 0.489);
+    width: 50%;
+    min-height: 90vh;
+}
+
+#header {
+    background-color: black;
+    min-height: 5%;
+}
+
+#nameTitle {
+    color: white;
+    font-size: 30px;
+    margin-bottom: 0;
+}
+
+#subHeader {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.subTitle {
+    color: white;
+    font-size: 20px;
+}
