@@ -18,6 +18,12 @@ function Info( {...props} ) {
                     <input type='text' name="address" className="infoInput" placeholder='City, Country' onChange={(e) => {props.setAddress(e.target.value)}}/>
                 </form>
             </div>
+            <div className="infoBlock">
+                <h2 className="infoTitle">Education</h2>
+            </div>
+            <div className="infoBlock">
+                <h2 className="infoTitle">Experience</h2>
+            </div>
         </div>
     )
 };

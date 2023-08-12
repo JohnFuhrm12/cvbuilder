@@ -9,6 +9,8 @@ function App() {
   const [phone, setPhone] = useState('+1 (767)-342-3424');
   const [address, setAddress] = useState('New Jersey, USA');
 
+  const educationItems = [];
+
   const props = {
     name,
     setName,
@@ -17,7 +19,8 @@ function App() {
     phone,
     setPhone,
     address,
-    setAddress
+    setAddress,
+    educationItems
   };
 
   return (
