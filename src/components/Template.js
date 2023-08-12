@@ -29,6 +29,24 @@ function Template( {...props} ) {
                     )
                 })}
             </div>
+            <div id='experienceContainer'>
+                <h2 className='sectionTitle'>Experience</h2>
+                {props.experienceItems.map((exp) => {
+                    return (
+                        <div className='expContainer'>
+                            <div className='expItemContainer'>
+                                <h2 className='expItem'>{`${exp.startEx} - ${exp.endEx}`}</h2>
+                                <h2 className='expItem'>{exp.locationEx}</h2>
+                            </div>
+                            <div className='expItemContainer'>
+                                <h2 className='expItemBold'>{exp.company}</h2>
+                                <h2 className='expItem'>{exp.position}</h2>
+                                <p className='expDesc'>{exp.description}</p>
+                            </div>
+                        </div>
+                    )
+                })}
+            </div>
         </div>
     );
 };

@@ -37,6 +37,44 @@ function Info( {...props} ) {
         console.log(props.educationItems);
     };
 
+    // Experience 
+
+    const [showExperienceForm, setShowExperienceForm] = useState(false);
+
+    const [company, setCompany] = useState(null);
+    const [position, setPosition] = useState(null);
+    const [startEx, setStartEx] = useState(null);
+    const [endEx, setEndEx] = useState(null);
+    const [locationEx, setLocationEx] = useState(null);
+    const [description, setDescription] = useState(null);
+
+    function showExperience() {
+        if (showExperienceForm) {
+            setShowExperienceForm(false);
+        } else {
+            setShowExperienceForm(true);
+        };
+    };
+
+    class ExperienceItem {
+        constructor(company, position, startEx, endEx, locationEx, description) {
+            this.company = company || null;
+            this.position = position || null;
+            this.startEx = startEx || null;
+            this.endEx = endEx || null;
+            this.locationEx = locationEx || null;
+            this.description = description || null;
+        };
+    };
+
+    function addExperience(e, company, position, startEx, endEx, locationEx, description) {
+        e.preventDefault();
+        const expItem = new ExperienceItem(company, position, startEx, endEx, locationEx, description);
+        props.setExperienceItems(oldItems => [...oldItems, expItem]);
+        showExperience();
+        console.log(props.experienceItems);
+    };
+
     return (
         <div id='infoContent'>
             <div className="infoBlock">
@@ -85,7 +123,36 @@ function Info( {...props} ) {
             </div>
             <div className="infoBlock">
                 <h2 className="infoTitle">Experience</h2>
-                <button className='addBtn'>Add Experience</button>
+                {showExperienceForm ? 
+                                <form className='infoForm'>
+                                <label htmlFor="company" className="infoInputLabel">Company:</label>
+                                <input type='text' name="company" className="infoInput" placeholder='Company Name' onChange={(e) => {setCompany(e.target.value)}}/>
+                                <label htmlFor="position" className="infoInputLabel">Position:</label>
+                                <input type='text' name="position" className="infoInput" placeholder='Position' onChange={(e) => {setPosition(e.target.value)}}/>
+                                <div id='dateRow'>
+                                    <div>
+                                        <label htmlFor="startDateEx" className="infoInputLabel">Start Date:</label>
+                                        <input type='text' name="startDateEx" className="infoInput" placeholder='Start Date' onChange={(e) => {setStartEx(e.target.value)}}/>
+                                    </div>
+                                    <div>
+                                        <label htmlFor="endDateEx" className="infoInputLabel">End Date:</label>
+                                        <input type='text' name="endDateEx" className="infoInput" placeholder='End Date' onChange={(e) => {setEndEx(e.target.value)}}/>
+                                    </div>
+                                </div>
+                                <label htmlFor="companyLocation" className="infoInputLabel">Location:</label>
+                                <input type='text' name="companyLocation" className="infoInput" placeholder='City, Country' onChange={(e) => {setLocationEx(e.target.value)}}/>
+                                <label htmlFor="description" className="infoInputLabel">Location:</label>
+                                <textarea type='text' name="description" className="infoInput" placeholder='Description' onChange={(e) => {setDescription(e.target.value)}}/>
+                                <button className='addBtn' onClick={(e) => {addExperience(e, company, position, startEx, endEx, locationEx, description)}}>Add</button>
+                            </form>
+                : <>
+                    {props.experienceItems.map((exp) => {
+                        return (
+                            <h2 className='eduTitle'>{exp.company}</h2>
+                        )
+                    })}
+                    <button className='addBtn' onClick={showExperience}>Add Experience</button>
+                </>}
             </div>
         </div>
     )

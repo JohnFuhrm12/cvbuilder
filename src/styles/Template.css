@@ -68,3 +68,39 @@
     margin-bottom: 5px;
     font-weight: bold;
 }
+
+.expContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    max-width: 100%;
+    margin-left: 10%;
+} 
+
+.expItemContainer {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    margin-top: 5%;
+    min-width: 30%;
+}
+
+.expItem {
+    font-size: 18px;
+    margin: 0;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    font-weight: 500;
+}
+
+.expItemBold {
+    font-size: 18px;
+    margin: 0;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.expDesc {
+    max-width: 80%;
+}

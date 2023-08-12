@@ -10,6 +10,7 @@ function App() {
   const [address, setAddress] = useState('New Jersey, USA');
 
   const [educationItems, setEducationItems] = useState([]);
+  const [experienceItems, setExperienceItems] = useState([]);
 
   const props = {
     name,
@@ -21,7 +22,9 @@ function App() {
     address,
     setAddress,
     educationItems,
-    setEducationItems
+    setEducationItems,
+    experienceItems,
+    setExperienceItems
   };
 
   return (
